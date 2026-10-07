@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | [701feb1] |
 
 ---
 
@@ -35,6 +36,9 @@ proceed.
 - **Quality standards:** every quality criterion is tagged with an ISO/IEC
   25010:2023 characteristic. The code is reviewed against `qc-programming-python`
   before the pull request.
+- **Contrast:** the contrast ratio of the Web Content Accessibility Guidelines
+  (WCAG) 2.x, computed from relative luminance: 1.0 for a colour identical to
+  white and 21.0 for black.
 - **Source requirements:** the course lecture "The Hirst Painting Project
   Part 2 - Drawing the Dots" (a written summary of the lecture is the only
   source supplied; the reference image is not).
@@ -46,6 +50,8 @@ Without one, the loops, the `turtle` positioning logic and the colour handling
 taught in the lecture stay theory. The lecture itself names the usual
 failures: a visible trail between dots, a missing last dot, white shades in
 the palette that make dots invisible, and a slow, visibly drawing turtle.
+Drawing the first painting from a photograph showed one more: faint colours
+that pass the white-shade rule but still hardly show on the white background.
 
 ## Business Opportunity
 
@@ -63,6 +69,7 @@ so the effort the framework adds can be judged against the size of the work.
 | O3 | Colour every dot by a random choice from that palette. |
 | O4 | Keep the finished painting on screen until the user clicks, and present it cleanly: turtle hidden, no trail between dots. |
 | O5 | Deliver the work through the framework: plan and issues first, then code reviewed against `qc-programming-python` (`RC-*` verdict `Go`) before the pull request. |
+| O6 | Keep every dot clearly visible on the white background: drop palette colours whose contrast with white is below 2.0. |
 
 ## Scope
 
@@ -70,6 +77,7 @@ so the effort the framework adds can be judged against the size of the work.
 
 - One Python program using the standard `turtle` module, the `random` module and the `colorgram` library.
 - Extraction of the palette from one reference image, with white shades removed.
+- Removal of faint colours from the palette: colours whose contrast with white is below 2.0.
 - Drawing of the 10 by 10 dot grid: dot size, spacing, row change and heading handling.
 - Screen handling: `exitonclick`, hiding the turtle, pen up between dots, drawing speed.
 - The framework documents the plan-first workflow requires for this work (Business Case, Stakeholder Analysis, Project Plan, milestones), and the review records for them and for the code.
@@ -86,7 +94,7 @@ so the effort the framework adds can be judged against the size of the work.
 
 ### Tangible Benefits
 
-- A working program that produces the painting described in O1 to O4.
+- A working program that produces the painting described in O1 to O4, with every dot clearly visible (O6).
 - A reviewed codebase with a recorded review (`RC-*`) against the Python checklist.
 - A traceable record from objective to milestone to issue to code.
 
@@ -112,6 +120,7 @@ framework that the repository is built on.
 | SC5 | Clean result (O4) | Turtle hidden at the end; no line drawn between dots; window stays open until a click | Visual check of one full run |
 | SC6 | Run time (O4) | The full painting is drawn in 30 seconds or less | Timed run on the developer machine (value confirmed by S01) |
 | SC7 | Review gate (O5) | `RC-*` for the code has verdict `Go`; the pull request closes every issue it completes | Review record and pull request description |
+| SC8 | Visible colours (O6) | 0 palette colours with a contrast ratio against white below 2.0; SC3 still holds for the final palette (at least 2 colours) | Print of the extracted palette with the contrast of every colour, checked against the limit (value chosen by S01) |
 
 ## Risks
 
@@ -121,6 +130,7 @@ framework that the repository is built on.
 | `colorgram` or the `turtle` graphical toolkit (Tk) cannot be installed or does not run on the developer machine | The program cannot be run or checked | Check both in the first task of the palette phase, before any other work depends on them |
 | White or near-white shades stay in the palette | Dots are invisible on the white background, so SC1 looks failed | SC3 sets an explicit threshold and is checked on the printed palette |
 | Off-by-one errors: last dot of a row or the last row missing, or a trail drawn | SC1 or SC5 fails | SC1 counts the dots and SC5 checks for a trail; both are verified in the code review |
+| The contrast cut-off removes too many colours | The painting looks dull | The limit of 2.0 sits in a gap in the palette of the reference image: 8 of its 30 colours fall below it, and the palest colour kept has a contrast of 2.56, so 22 remain. SC3 still requires at least 2, and S01 judges the picture in the timed run |
 | Framework process outweighs the size of the work | Schedule slips and the exercise stops being a small one | Keep to two phases and plain tasks; no use cases or design artifacts (see Out of Scope) |
 | The only named reviewer is also the author | Reviews are not independent, as the review process requires | S01 accepted a documented self-review on 2026-10-07; each review record states it |
 
@@ -158,7 +168,7 @@ Roles, power and interest are in [SA-001]; they are not repeated here.
 
 | Stakeholder ID (SA) | Interest in this project |
 | --- | --- |
-| S01 | Owner of all objectives (O1 to O5); accepts the work and answers the open questions above |
+| S01 | Owner of all objectives (O1 to O6); accepts the work and answers the open questions above |
 
 ## Recommendation
 
@@ -168,3 +178,4 @@ Proceed — the work is small, the cost is only S01's time, and every objective 
 
 [SA-001]: ./stakeholder-analysis.md
 [b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
+[701feb1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/701feb1e523b1d61fb93227a7f0e2feaac18bb4d
