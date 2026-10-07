@@ -38,7 +38,7 @@ own milestone document, and each gateway ends with a Go/No-Go decision by S01.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Colour palette | [MIL-001] | 2026-10-07 to 2026-10-09 | 2026-10-09 | S01 | none | Palette function that returns the reference image's colours without white shades | [MIL-001 milestone] |
 | Spot painting | [MIL-002] | 2026-10-10 to 2026-10-14 | 2026-10-14 | S01 | none | Program that draws the 10 by 10 painting and meets SC1 to SC7 of [BC-001] | [MIL-002 milestone] |
-| Visible colours | [MIL-003] | 2026-10-08 to 2026-10-10 | 2026-10-10 | S01 | none | Palette without faint colours: every colour has a contrast of 2.0 or more with white (O6, SC8 of [BC-001]) | |
+| Visible colours | [MIL-003] | 2026-10-08 to 2026-10-10 | 2026-10-10 | S01 | none | Palette without faint colours: every colour has a contrast of 2.0 or more with white (O6, SC8 of [BC-001]) | [MIL-003 milestone] |
 
 ```plantuml
 @startgantt
@@ -113,6 +113,7 @@ Both decisions came before the planned dates because every Go criterion was alre
 [MIL-003]: ./milestones/mil-003-visible-colours.md
 [MIL-001 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/68
 [MIL-002 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/69
+[MIL-003 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/74
 [PR 14]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/14
 [PR 16]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/16
 [a6b17d3]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/a6b17d30bc0778b7f80c57bfd22a505df5fe9ee1

@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [188b2e9] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [188b2e9] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Renamed task 6 so that its issue title is unique across the milestones (issue #27) | [22b7329] |
 
 ---
 
@@ -78,9 +79,10 @@ Tasks column "Needs its own Use Case/User Story?" says `No` throughout.
 | 3 | Add tests for the measure and the filter | Add tests under `tests/` with known values (white 1.0, black 21.0, a mid grey) and with the boundary: a colour just below 2.0 is dropped and one just above is kept. They pin the limit before the real image is involved, as the white-shade tests do for 240. | No | |
 | 4 | Apply the filter when the palette is extracted | Make `extract_palette` apply the faint-colour filter after the white-shade filter, update its tests, and add one that checks the palette of the reference image: no colour below 2.0 and at least 2 colours. Print the palette with each contrast; the measurement on 2026-10-08 predicts 22 colours. | No | |
 | 5 | Check the painting again with a real run | Run `main` on a real window, time it and capture the picture: 100 dots in 10 rows of 10, no trail, no turtle cursor, the window open until a click, and every dot clearly visible on the white background. This rechecks SC1 to SC8 together. | No | |
-| 6 | Review the phase code against qc-programming-python | Check the code of this phase against `framework/qc/qc-programming-python.md` and record the result as an `RC-*`; a `Go` verdict is Go criterion 5 (SC7). | No | |
+| 6 | Review the visible-colours code against qc-programming-python | Check the code of this phase against `framework/qc/qc-programming-python.md` and record the result as an `RC-*`; a `Go` verdict is Go criterion 5 (SC7). | No | |
 
 ---
 
 [BC-001]: ../business-case.md
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
+[22b7329]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/22b7329b47ccbfeff5cdf5626da9b5d60010d261
