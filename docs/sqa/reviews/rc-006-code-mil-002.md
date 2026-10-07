@@ -9,7 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | [c3cfb64] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | [c3cfb64] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded S01's acceptance of the display requirement (Action Item 2) | pending |
 
 ---
 
@@ -50,7 +51,7 @@ Evidence gathered on 2026-10-08 with Python 3.13.14, `ruff` 0.16.10, `mypy`
 | 8 | Public modules, classes and functions have docstrings that say what, not how | Pass | Module, every public function and the `DotPen` protocol and its methods have docstrings; `ruff` rules `D` (pydocstyle, PEP 257) are on and clean. Observation, not a defect: the `...` after each docstring in `DotPen` is redundant and can be dropped |
 | 9 | Logging uses `logging`, not `print`; no secrets or personal data in log output | Pass | `src/` has no `print`, no logging and no secrets; the program reads `assets/20260524_132700.jpg` and nothing else. It does not read `.env` |
 | 10 | Classes and operations trace to the Design Class Diagram they implement; deviations are recorded | N-A | No Design Class Diagram exists: design artifacts are out of scope in [BC-001]. The only class-like element, the protocol `DotPen`, exists so that `draw_dots` can be tested without a window. The functions trace to the tasks of [MIL-002] instead: `create_pen` to task 1, `dot_positions` to task 2, `draw_dots` to task 3, `main` to tasks 4 and 5 |
-| 11 | Tests exist for new behaviour, are named for the behaviour, and do not depend on order or the network | Pass | 22 new tests named `test_<behaviour>_<condition>`, covering tasks 1 to 5 and the checks of task 6 (100 positions in 10 rows of 10, spacing 50, palette membership). Order independence was run, not assumed. The tests need a display for Tk (see the action item); they need no network. Review found one flaw during development, fixed before this record: starting Tk once per test failed now and then on Windows, so all tests share one hidden Tk window (`tk_root`, scope `session`) |
+| 11 | Tests exist for new behaviour, are named for the behaviour, and do not depend on order or the network | Pass | 22 new tests named `test_<behaviour>_<condition>`, covering tasks 1 to 5 and the checks of task 6 (100 positions in 10 rows of 10, spacing 50, palette membership). Order independence was run, not assumed. The tests need a display for Tk, which S01 accepted on 2026-10-08 (Action Item 2); they need no network. Review found one flaw during development, fixed before this record: starting Tk once per test failed now and then on Windows, so all tests share one hidden Tk window (`tk_root`, scope `session`) |
 | 12 | Type checker runs in strict mode without errors; `Any` is justified in a comment | Pass | `mypy` strict is clean and the code contains no `Any`. The `colorgram` override from [MIL-001] still has its comment in `pyproject.toml` |
 | 13 | Dependencies are declared and pinned in the project's dependency file, none unused | Pass | `pyproject.toml` is unchanged from the version merged with [MIL-001] and still pins `colorgram.py==1.2.0` and the dev tools `mypy==2.4.0`, `pillow==12.3.0`, `pytest==9.1.1` and `ruff==0.16.10`. The new code adds only standard-library imports (`random`, `turtle`, `tkinter`, `dataclasses`, `typing`) |
 
@@ -59,15 +60,15 @@ Evidence gathered on 2026-10-08 with Python 3.13.14, `ruff` 0.16.10, `mypy`
 Go — confirmed by S01 on 2026-10-08. All 12 applicable criteria of [QC-PY-001] pass,
 including the 3 optional ones (8, 12, 13); criterion 10 is N-A with the reason
 above. A `Go` here is Go criterion 6 of [MIL-002], the last open one. The
-code satisfies criteria 1 to 5 of [MIL-002] on the evidence above. Action items
-2 and 3 are decisions for S01 and do not block the verdict; only item 1 did, and it is closed.
+code satisfies criteria 1 to 5 of [MIL-002] on the evidence above. Action item
+2 is closed (S01 accepted the display requirement); item 3 is a decision for S01 that does not block the verdict; only item 1 did, and it is closed.
 
 ## Action Items
 
 | # | Action | Owner | Due |
 | --- | --- | --- | --- |
 | 1 | Confirm the verdict `Go` for the code of [MIL-002], or name the criterion you disagree with. **Closed 2026-10-08:** S01 confirmed `Go` | S01 | 2026-10-10 |
-| 2 | Decide whether the tests may need a display: they cannot run on a machine without one, such as a build server. Accept this for the project, or ask for a change. **Open:** a decision for S01 that does not block the verdict | S01 | 2026-10-10 |
+| 2 | Decide whether the tests may need a display: they cannot run on a machine without one, such as a build server. Accept this for the project, or ask for a change. **Closed 2026-10-08:** S01 accepted the display requirement for the project. 10 of the 33 test functions (10 of 40 test cases) need a display for Tk: the pen-setup tests, the three real-turtle drawing tests and the three `main` tests. The other 23 functions (30 cases) run anywhere. The code and the tests stay as they are | S01 | 2026-10-10 |
 | 3 | Decide whether to raise the white threshold or reduce the colour count, because a few pale colours of the palette are faint on the white background (observation from the captured picture, not a criterion of [QC-PY-001]). Raising the threshold changes SC3 of [BC-001] and so needs a new row and a re-review of it; reducing the colour count does not. **Open:** a decision for S01 that does not block the verdict | S01 | 2026-10-10 |
 
 ---
