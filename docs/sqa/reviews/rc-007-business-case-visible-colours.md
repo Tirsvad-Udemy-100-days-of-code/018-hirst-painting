@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | [701feb1] |
 
 ---
 
@@ -66,3 +66,4 @@ Go — every criterion in the delta passes. S01 confirmed on 2026-10-08 that the
 [SA-001]: ../../stakeholder-analysis.md
 [QC-BC-001]: ../../../framework/qc/qc-business-case.md
 [QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[701feb1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/701feb1e523b1d61fb93227a7f0e2feaac18bb4d

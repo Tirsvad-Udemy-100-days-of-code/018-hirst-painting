@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | [188b2e9] |
 
 ---
 
@@ -67,3 +67,4 @@ Go — every criterion of [QC-MIL-001] and of [QC-LANG-001] passes (criterion 8 
 [BC-001]: ../../business-case.md
 [QC-MIL-001]: ../../../framework/qc/qc-milestones-gateways.md
 [QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28

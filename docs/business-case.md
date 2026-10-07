@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | [701feb1] |
 
 ---
 
@@ -178,3 +178,4 @@ Proceed — the work is small, the cost is only S01's time, and every objective 
 
 [SA-001]: ./stakeholder-analysis.md
 [b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
+[701feb1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/701feb1e523b1d61fb93227a7f0e2feaac18bb4d
