@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | [c3cfb64] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded S01's acceptance of the display requirement (Action Item 2) | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded S01's acceptance of the display requirement (Action Item 2) | [3868ea6] |
 
 ---
 
@@ -78,3 +78,4 @@ code satisfies criteria 1 to 5 of [MIL-002] on the evidence above. Action item
 [BC-001]: ../../business-case.md
 [QC-PY-001]: ../../../framework/qc/qc-programming-python.md
 [c3cfb64]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/c3cfb6462e4b8b0a6fe37cf953a601703e352538
+[3868ea6]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/3868ea6f8bb540612189782e95d19b2e4c93cbae
