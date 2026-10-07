@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded the Go decisions of MIL-001 and MIL-002<br>Closed the reference-image open issue | [a6b17d3] |
 
 ---
 
@@ -78,9 +79,20 @@ one-week limit then has no slack, so S01 decides whether to extend it.
 
 ## Open Issues
 
-- **Reference image:** its location is still unknown. S01 supplies it before task 4 of [MIL-001].
-- **Project Plan review:** the Project Plan has no quality checklist yet, so it is `Accepted` when S01 says so in chat (done on 2026-10-07); no review record is written for it.
+- **Reference image:** resolved. S01 supplied `assets/20260524_132700.jpg` on 2026-10-07, which completed task 4 of [MIL-001].
+- **Project Plan review:** the Project Plan has no quality checklist yet, so it is `Accepted` when S01 says so in chat (done on 2026-10-07, and again on 2026-10-08 for the gateway decisions); no review record is written for it.
 - **Milestone links:** `sync-project.sh --apply` ran on 2026-10-07 and created the two Milestones and issues #1 to #13 on the git host; the Milestone column links to them.
+
+## Gateway Decisions
+
+The Go/No-Go decision of each gateway, taken by its owner (S01) in chat and recorded here by the assistant. The Decision date in the Gateway Schedule is the planned date; the date below is the actual one.
+
+| Gateway | Document | Decision | Decided by | Decision date | Planned date | Basis |
+| --- | --- | --- | --- | --- | --- | --- |
+| Colour palette | [MIL-001] | Go | S01 | 2026-10-08 | 2026-10-09 | All five Go criteria met: imports and window, 30 colours, no white shade, 18 tests passing, code review RC-005 with verdict `Go`. Pull request [PR 14] merged; Milestone closed on the git host |
+| Spot painting | [MIL-002] | Go | S01 | 2026-10-08 | 2026-10-14 | All six Go criteria met: 100 dots in 10 rows of 10, size 20 and 50 apart, colours from the palette, clean result with the window open until a click, drawn in 0.35 seconds, code review RC-006 with verdict `Go`. Pull request [PR 16] merged; Milestone closed on the git host |
+
+Both decisions came before the planned dates because every Go criterion was already met. The two open decisions on RC-006 (the display requirement of the tests and the pale palette colours) did not block either one.
 
 ---
 
@@ -90,4 +102,7 @@ one-week limit then has no slack, so S01 decides whether to extend it.
 [MIL-002]: ./milestones/mil-002-painting.md
 [MIL-001 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/68
 [MIL-002 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/69
+[PR 14]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/14
+[PR 16]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/16
 [b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
+[a6b17d3]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/a6b17d30bc0778b7f80c57bfd22a505df5fe9ee1
