@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | [188b2e9] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added the delta confirmation for the rename of task 6 of MIL-003 | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added the delta confirmation for the rename of task 6 of MIL-003 | [22b7329] |
 
 ---
 
@@ -71,3 +71,4 @@ Go — every criterion of [QC-MIL-001] and of [QC-LANG-001] passes (criterion 8 
 [QC-MIL-001]: ../../../framework/qc/qc-milestones-gateways.md
 [QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
+[22b7329]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/22b7329b47ccbfeff5cdf5626da9b5d60010d261
