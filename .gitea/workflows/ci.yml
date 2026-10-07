@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install system packages
+        # The tests open a hidden Tk window, so the runner needs the Tk libraries
+        # and a virtual display (xvfb). sudo is used only where the image has it.
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          SUDO=$(command -v sudo || true)
+          $SUDO apt-get update
+          $SUDO apt-get install -y xvfb python3-tk
+      - name: Install
+        # The dev tools are a dependency group in pyproject.toml, not an extra,
+        # so they need --group dev (pip 25.1 or newer).
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . --group dev
+      - name: Tests
+        run: xvfb-run -a python -m pytest
+      - name: Lint
+        run: python -m ruff check src tests
+      - name: Format check
+        run: python -m ruff format --check src tests
+      - name: Types
+        run: python -m mypy src tests
