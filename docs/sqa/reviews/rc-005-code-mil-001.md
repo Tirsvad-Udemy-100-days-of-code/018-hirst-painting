@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | pending |
+| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | [b7119ef] |
 
 ---
 
@@ -71,3 +71,4 @@ open one.
 [MIL-001]: ../../milestones/mil-001-palette.md
 [BC-001]: ../../business-case.md
 [QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[b7119ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b7119ef907b1ae56d7aa231a460aeab8fa2f2e11

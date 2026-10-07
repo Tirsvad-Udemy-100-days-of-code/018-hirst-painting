@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
 
 ---
 
@@ -90,3 +90,4 @@ one-week limit then has no slack, so S01 decides whether to extend it.
 [MIL-002]: ./milestones/mil-002-painting.md
 [MIL-001 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/68
 [MIL-002 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/69
+[b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725

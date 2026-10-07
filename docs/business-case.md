@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
 
 ---
 
@@ -167,3 +167,4 @@ Proceed — the work is small, the cost is only S01's time, and every objective 
 ---
 
 [SA-001]: ./stakeholder-analysis.md
+[b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
