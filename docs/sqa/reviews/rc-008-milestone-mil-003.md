@@ -9,7 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | [188b2e9] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Terms confirmed by S01, verdict `Go` | [188b2e9] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added the delta confirmation for the rename of task 6 of MIL-003 | pending |
 
 ---
 
@@ -24,6 +25,8 @@
 **Status of this record:** final. The assistant read the milestone against
 every criterion and recorded what it found; S01 confirmed the open point on
 2026-10-08 and the verdict is `Go`.
+
+**Delta confirmation, 2026-10-08:** after the review, task 6 of [MIL-003] was renamed from "Review the phase code against qc-programming-python" to "Review the visible-colours code against qc-programming-python". The old title was the same as the title of task 6 of MIL-001, and `sync-project.sh` matches issues by title, so creating the issues overwrote the closed MIL-001 issue #6; it was restored, and the renamed task became issue #27. No criterion result below changes: the summary, the deliverable, the criteria, the traceability, the ownership and the date are untouched, and the new title uses the project's own term (*visible colours*) from [MIL-003].
 
 ## Checklist Results
 
