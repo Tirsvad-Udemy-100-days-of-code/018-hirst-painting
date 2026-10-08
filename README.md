@@ -15,12 +15,12 @@ A Python program that draws a Hirst-style spot painting with `turtle`: a 10 by 1
 
 ## 🧭 Overview
 
-The program opens a `turtle` window and draws 100 dots of size 20, 50 units apart, in 10 rows of 10, centred in the window. Each dot takes a random colour from a palette that `colorgram` extracts from a reference image. White shades (red, green and blue all at 240 or above) are removed from the palette, because they would be invisible on the white background. The drawing runs without animation, takes well under a second, and the window stays open until you click it.
+The program opens a `turtle` window and draws 100 dots of size 20, 50 units apart, in 10 rows of 10, centred in the window. Each dot takes a random colour from a palette that `colorgram` extracts from a reference image. White shades (red, green and blue all at 240 or above) and other faint colours, those whose contrast with white is below 2.0 (the contrast ratio of the Web Content Accessibility Guidelines), are removed from the palette, because their dots would hardly show on the white background. The reference image gives a palette of 22 colours. The drawing runs without animation, takes well under a second, and the window stays open until you click it.
 
 | Part | What it is for |
 | --- | --- |
-| `src/hirst_painting.py` | The program: the palette (`extract_palette` and the white-shade filter), the dot positions, the pen setup, the drawing and `main` |
-| `tests/test_hirst_painting.py` | The tests, 40 test cases for `pytest` |
+| `src/hirst_painting.py` | The program: the palette (`extract_palette`, the white-shade and faint-colour filters and the contrast measure), the dot positions, the pen setup, the drawing and `main` |
+| `tests/test_hirst_painting.py` | The tests, 77 test cases for `pytest` |
 | `assets/` | The reference image `20260524_132700.jpg`, which the palette is taken from |
 | `docs/` | The project documents; see the appendix |
 | `framework/` | The SQA and QC framework this project uses, a git submodule |
@@ -29,7 +29,7 @@ The program opens a `turtle` window and draws 100 dots of size 20, 50 units apar
 ## 📋 Requirements
 
 - **Python 3.13 or newer, with Tk.** The `turtle` module needs Tk to open a window. The python.org and Microsoft Store installers include it; on Debian and Ubuntu the package is `python3-tk`.
-- **A display.** The program opens a window, and 10 of the 40 test cases, the ones that use Tk, need a display as well.
+- **A display.** The program opens a window, and 10 of the 77 test cases, the ones that use Tk, need a display as well.
 - **`colorgram.py` 1.2.0**, which brings Pillow, to extract the palette from the image. It is pinned in `pyproject.toml`.
 - **`pytest`, `ruff` and `mypy`**, pinned in the `dev` group, to test, format, lint and type-check.
 - **pip 25.1 or newer**, for the `--group` option in the setup command below.
@@ -65,7 +65,7 @@ python -m ruff check .
 python -m mypy
 ```
 
-`mypy` runs in strict mode. Ten of the 40 test cases need a display for Tk; this was accepted in the review record of the code ([RC-006][RC-006]).
+`mypy` runs in strict mode. Ten of the 77 test cases need a display for Tk; this was accepted in the review record of the code ([RC-006][RC-006]).
 
 ## 📄 License
 
