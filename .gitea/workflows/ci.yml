@@ -1,7 +1,11 @@
 name: CI
 
 on:
+  # Pushes to a branch with an open pull request would run the checks twice,
+  # so only main runs on push; every pull request runs on its own.
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
