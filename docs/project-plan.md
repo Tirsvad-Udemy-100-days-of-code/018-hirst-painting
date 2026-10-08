@@ -11,8 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Recorded the Go decisions of MIL-001 and MIL-002<br>Closed the reference-image open issue | [a6b17d3] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added gateway MIL-003 Visible Colours: schedule, timeline, scope coverage, dependency and a plan risk | [188b2e9] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Added gateway MIL-003 Visible Colours: schedule, timeline, scope coverage, dependency and a plan risk | [188b2e9] |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded the Go decision of MIL-003 | [b385a80] |
 
 ---
 
@@ -90,7 +90,7 @@ one-week limit then has no slack, so S01 decides whether to extend it.
 ## Open Issues
 
 - **Reference image:** resolved. S01 supplied `assets/20260524_132700.jpg` on 2026-10-07, which completed task 4 of [MIL-001].
-- **Project Plan review:** the Project Plan has no quality checklist yet, so it is `Accepted` when S01 says so in chat (done on 2026-10-07, and again on 2026-10-08 for the gateway decisions and for MIL-003); no review record is written for it.
+- **Project Plan review:** the Project Plan has no quality checklist yet, so it is `Accepted` when S01 says so in chat (done on 2026-10-07, and again on 2026-10-08 for the gateway decisions, for MIL-003 and for its decision); no review record is written for it.
 - **Milestone links:** `sync-project.sh --apply` ran on 2026-10-07 and created the two Milestones and issues #1 to #13 on the git host; the Milestone column links to them.
 
 ## Gateway Decisions
@@ -101,8 +101,9 @@ The Go/No-Go decision of each gateway, taken by its owner (S01) in chat and reco
 | --- | --- | --- | --- | --- | --- | --- |
 | Colour palette | [MIL-001] | Go | S01 | 2026-10-08 | 2026-10-09 | All five Go criteria met: imports and window, 30 colours, no white shade, 18 tests passing, code review RC-005 with verdict `Go`. Pull request [PR 14] merged; Milestone closed on the git host |
 | Spot painting | [MIL-002] | Go | S01 | 2026-10-08 | 2026-10-14 | All six Go criteria met: 100 dots in 10 rows of 10, size 20 and 50 apart, colours from the palette, clean result with the window open until a click, drawn in 0.35 seconds, code review RC-006 with verdict `Go`. Pull request [PR 16] merged; Milestone closed on the git host |
+| Visible colours | [MIL-003] | Go | S01 | 2026-10-08 | 2026-10-10 | All five Go criteria met: the tests of the contrast measure and the filter pass; the palette has 22 colours, a lowest contrast of 2.56 and no white shade; 77 tests pass with `ruff` and `mypy` clean; a real run drew the painting in 0.35 seconds with 100 dots, no trail and the window open until a click; code review RC-009 with verdict `Go`. Pull request [PR 29] merged; Milestone closed on the git host |
 
-Both decisions came before the planned dates because every Go criterion was already met. The two open decisions on RC-006 (the display requirement of the tests and the pale palette colours) did not block either one.
+All three decisions came before the planned dates because every Go criterion was already met. The two open decisions on RC-006 (the display requirement of the tests and the pale palette colours) did not block the first two; the open decision on RC-009 (whether `extract_palette` keeps its call to `remove_white_shades`) did not block the third.
 
 ---
 
@@ -116,5 +117,6 @@ Both decisions came before the planned dates because every Go criterion was alre
 [MIL-003 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/74
 [PR 14]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/14
 [PR 16]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/16
-[a6b17d3]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/a6b17d30bc0778b7f80c57bfd22a505df5fe9ee1
+[PR 29]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/29
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
+[b385a80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b385a801ccd124ce7b492098fef55e895623a577
