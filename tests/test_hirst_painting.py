@@ -16,12 +16,16 @@ from hirst_painting import (
     Colour,
     DotPen,
     Position,
+    contrast_with_white,
     create_pen,
     dot_positions,
     draw_dots,
     extract_palette,
+    is_faint_colour,
     is_white_shade,
     main,
+    relative_luminance,
+    remove_faint_colours,
     remove_white_shades,
 )
 
@@ -98,6 +102,152 @@ def test_remove_white_shades_leaves_input_unchanged() -> None:
     assert colours == [(255, 255, 255), (200, 30, 40)]
 
 
+def test_relative_luminance_of_white_is_1() -> None:
+    assert relative_luminance((255, 255, 255)) == pytest.approx(1.0)
+
+
+def test_relative_luminance_of_black_is_0() -> None:
+    assert relative_luminance((0, 0, 0)) == 0.0
+
+
+@pytest.mark.parametrize(
+    ("colour", "expected"),
+    [
+        ((255, 0, 0), 0.2126),
+        ((0, 255, 0), 0.7152),
+        ((0, 0, 255), 0.0722),
+    ],
+)
+def test_relative_luminance_weighs_red_green_and_blue_as_wcag_does(
+    colour: Colour, expected: float
+) -> None:
+    assert relative_luminance(colour) == pytest.approx(expected)
+
+
+@pytest.mark.parametrize(
+    ("channel", "expected"),
+    [
+        (10, 0.0030353),
+        (11, 0.0033465),
+        (128, 0.2158605),
+    ],
+)
+def test_relative_luminance_follows_the_wcag_curve_on_both_sides_of_its_break(
+    channel: int, expected: float
+) -> None:
+    assert relative_luminance((channel, channel, channel)) == pytest.approx(
+        expected, rel=1e-4
+    )
+
+
+def test_contrast_with_white_is_1_for_white() -> None:
+    assert contrast_with_white((255, 255, 255)) == pytest.approx(1.0)
+
+
+def test_contrast_with_white_is_21_for_black() -> None:
+    assert contrast_with_white((0, 0, 0)) == pytest.approx(21.0)
+
+
+@pytest.mark.parametrize(
+    ("colour", "expected"),
+    [
+        ((118, 118, 118), 4.54),
+        ((119, 119, 119), 4.48),
+        ((128, 128, 128), 3.95),
+        ((255, 0, 0), 4.00),
+        ((215, 239, 209), 1.22),
+        ((187, 157, 117), 2.56),
+    ],
+)
+def test_contrast_with_white_matches_published_and_measured_values(
+    colour: Colour, expected: float
+) -> None:
+    assert contrast_with_white(colour) == pytest.approx(expected, abs=0.005)
+
+
+def test_contrast_with_white_is_higher_for_a_darker_colour() -> None:
+    darker_to_lighter: list[Colour] = [
+        (0, 0, 0),
+        (118, 118, 118),
+        (128, 128, 128),
+        (215, 239, 209),
+        (255, 255, 255),
+    ]
+
+    contrasts = [contrast_with_white(colour) for colour in darker_to_lighter]
+
+    assert contrasts == sorted(contrasts, reverse=True)
+
+
+@pytest.mark.parametrize(
+    "colour",
+    [
+        (184, 184, 184),
+        (70, 205, 160),
+        (231, 171, 158),
+        (238, 212, 114),
+        (255, 255, 255),
+    ],
+)
+def test_is_faint_colour_when_contrast_with_white_is_below_2(colour: Colour) -> None:
+    assert is_faint_colour(colour)
+
+
+@pytest.mark.parametrize(
+    "colour",
+    [
+        (183, 183, 183),
+        (145, 190, 210),
+        (187, 157, 117),
+        (0, 0, 0),
+    ],
+)
+def test_is_not_faint_colour_when_contrast_with_white_is_2_or_more(
+    colour: Colour,
+) -> None:
+    assert not is_faint_colour(colour)
+
+
+@pytest.mark.parametrize("colour", [(240, 240, 240), (245, 250, 241), (255, 255, 255)])
+def test_every_white_shade_is_a_faint_colour(colour: Colour) -> None:
+    assert is_white_shade(colour)
+    assert is_faint_colour(colour)
+
+
+def test_remove_faint_colours_keeps_order_and_drops_faint_ones() -> None:
+    colours: list[Colour] = [
+        (255, 255, 255),
+        (187, 157, 117),
+        (231, 171, 158),
+        (30, 90, 160),
+        (238, 212, 114),
+    ]
+
+    assert remove_faint_colours(colours) == [(187, 157, 117), (30, 90, 160)]
+
+
+def test_remove_faint_colours_returns_empty_list_when_all_faint() -> None:
+    assert remove_faint_colours([(255, 255, 255), (231, 171, 158)]) == []
+
+
+def test_remove_faint_colours_returns_empty_list_when_no_colours() -> None:
+    assert remove_faint_colours([]) == []
+
+
+def test_remove_faint_colours_accepts_any_iterable() -> None:
+    colours = (colour for colour in [(20, 120, 60), (240, 240, 240), (30, 90, 160)])
+
+    assert remove_faint_colours(colours) == [(20, 120, 60), (30, 90, 160)]
+
+
+def test_remove_faint_colours_leaves_input_unchanged() -> None:
+    colours: list[Colour] = [(255, 255, 255), (30, 90, 160)]
+
+    remove_faint_colours(colours)
+
+    assert colours == [(255, 255, 255), (30, 90, 160)]
+
+
 def test_extract_palette_returns_colours_without_white_shades(tmp_path: Path) -> None:
     image_path = tmp_path / "stripes.png"
     _write_stripes(
@@ -130,6 +280,32 @@ def test_reference_image_palette_has_two_colours_and_no_white_shade() -> None:
 
     assert len(palette) >= 2
     assert not any(is_white_shade(colour) for colour in palette)
+
+
+def test_extract_palette_drops_faint_colours_that_are_not_white_shades(
+    tmp_path: Path,
+) -> None:
+    image_path = tmp_path / "stripes.png"
+    _write_stripes(
+        image_path,
+        [(30, 90, 160), (166, 216, 156), (238, 212, 114)],
+    )
+
+    assert extract_palette(image_path) == [(30, 90, 160)]
+
+
+def test_reference_image_palette_has_no_faint_colour() -> None:
+    palette = extract_palette(REFERENCE_IMAGE_PATH)
+
+    assert len(palette) >= 2
+    assert min(contrast_with_white(colour) for colour in palette) >= 2.0
+
+
+def test_reference_image_palette_has_22_colours() -> None:
+    # BC-001 records that 8 of the 30 colours colorgram finds in the reference
+    # image are faint, so 22 remain. The versions of colorgram and the image are
+    # pinned, so the count must not change unnoticed.
+    assert len(extract_palette(REFERENCE_IMAGE_PATH)) == 22
 
 
 @pytest.fixture(scope="session")

@@ -1,5 +1,6 @@
 """Hirst-style spot painting drawn with turtle."""
 
+import math
 import random
 import turtle
 from collections.abc import Callable, Iterable, Sequence
@@ -34,6 +35,27 @@ DOT_SPACING = 50
 # this value: such dots are invisible on the white background (SC3 of BC-001).
 WHITE_THRESHOLD = 240
 
+# A colour is faint when its contrast with white is below this limit, so that its
+# dots hardly show on the white background (O6 and SC8 of BC-001, limit chosen by
+# S01). Every white shade is faint too, but a faint colour need not be a white
+# shade.
+MINIMUM_CONTRAST = 2.0
+
+# The constants of the Web Content Accessibility Guidelines (WCAG) 2.x definition
+# of relative luminance and contrast ratio. A channel value is first scaled to 0
+# to 1, then put on a linear scale: dark values by a straight line (slope 12.92)
+# up to the break, the rest by a power curve (offset 0.055, scale 1.055, exponent
+# 2.4). The weights say how much red, green and blue add to the luminance.
+CHANNEL_MAXIMUM = 255
+LINEAR_BREAK = 0.03928
+LINEAR_SLOPE = 12.92
+CURVE_OFFSET = 0.055
+CURVE_SCALE = 1.055
+CURVE_EXPONENT = 2.4
+LUMINANCE_WEIGHTS = (0.2126, 0.7152, 0.0722)
+WHITE_LUMINANCE = 1.0
+CONTRAST_OFFSET = 0.05
+
 
 def is_white_shade(colour: Colour) -> bool:
     """Return whether red, green and blue are all at or above the threshold."""
@@ -45,16 +67,55 @@ def remove_white_shades(colours: Iterable[Colour]) -> list[Colour]:
     return [colour for colour in colours if not is_white_shade(colour)]
 
 
+def _linearise(channel: int) -> float:
+    """Return a 0 to 255 channel value on the linear scale WCAG uses."""
+    scaled = channel / CHANNEL_MAXIMUM
+    if scaled <= LINEAR_BREAK:
+        return scaled / LINEAR_SLOPE
+    return math.pow((scaled + CURVE_OFFSET) / CURVE_SCALE, CURVE_EXPONENT)
+
+
+def relative_luminance(colour: Colour) -> float:
+    """Return the WCAG relative luminance: 0.0 for black and 1.0 for white."""
+    red, green, blue = (_linearise(channel) for channel in colour)
+    red_weight, green_weight, blue_weight = LUMINANCE_WEIGHTS
+    return red_weight * red + green_weight * green + blue_weight * blue
+
+
+def contrast_with_white(colour: Colour) -> float:
+    """Return the WCAG contrast ratio of the colour against white.
+
+    The ratio is 1.0 for white itself, which is invisible on a white background,
+    and 21.0 for black.
+    """
+    return (WHITE_LUMINANCE + CONTRAST_OFFSET) / (
+        relative_luminance(colour) + CONTRAST_OFFSET
+    )
+
+
+def is_faint_colour(colour: Colour) -> bool:
+    """Return whether the colour's contrast with white is below the minimum."""
+    return contrast_with_white(colour) < MINIMUM_CONTRAST
+
+
+def remove_faint_colours(colours: Iterable[Colour]) -> list[Colour]:
+    """Return the colours without faint ones, in their original order."""
+    return [colour for colour in colours if not is_faint_colour(colour)]
+
+
 def extract_palette(
     image_path: Path, colour_count: int = EXTRACTED_COLOUR_COUNT
 ) -> list[Colour]:
-    """Return the image's colours without white shades, most common first.
+    """Return the image's colours without white shades and faint colours.
 
-    Raises FileNotFoundError when the image does not exist.
+    The colours come most common first. Raises FileNotFoundError when the image
+    does not exist.
     """
     extracted = colorgram.extract(str(image_path), colour_count)
     colours = [(found.rgb.r, found.rgb.g, found.rgb.b) for found in extracted]
-    return remove_white_shades(colours)
+    # Every white shade is faint, so the second filter alone would do; the first
+    # stays because it is the lecture's step and SC3 of BC-001 checks it by itself.
+    return remove_faint_colours(remove_white_shades(colours))
 
 
 class DotPen(Protocol):
