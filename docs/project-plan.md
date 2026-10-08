@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Added gateway MIL-003 Visible Colours: schedule, timeline, scope coverage, dependency and a plan risk | [188b2e9] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded the Go decision of MIL-003 | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Recorded the Go decision of MIL-003 | [b385a80] |
 
 ---
 
@@ -119,3 +119,4 @@ All three decisions came before the planned dates because every Go criterion was
 [PR 16]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/16
 [PR 29]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/pulls/29
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
+[b385a80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b385a801ccd124ce7b492098fef55e895623a577
