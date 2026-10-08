@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | pending |
+| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version (draft prepared by the assistant for S01 to confirm)<br>Verdict `Go` confirmed by S01 | [970b600] |
 
 ---
 
@@ -76,3 +76,4 @@ S01 and does not block the verdict; only item 1 did, and it is closed.
 [BC-001]: ../../business-case.md
 [QC-PY-001]: ../../../framework/qc/qc-programming-python.md
 [RC-006]: ./rc-006-code-mil-002.md
+[970b600]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/970b600be9e5d56e7426891e72246836c4812c86
