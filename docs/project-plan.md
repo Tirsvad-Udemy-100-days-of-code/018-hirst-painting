@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Added gateway MIL-003 Visible Colours: schedule, timeline, scope coverage, dependency and a plan risk | [188b2e9] |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Recorded the Go decision of MIL-003 | [b385a80] |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway MIL-004, its scope coverage, dependency, risk and Gantt entries; updated the open issue about the plan review; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway MIL-004, its scope coverage, dependency, risk and Gantt entries; updated the open issue about the plan review; set the domain to education; reviewed in autonomous mode, not independent | [1b1a439] |
 
 ---
 
@@ -136,3 +136,4 @@ All three decisions came before the planned dates because every Go criterion was
 [b385a80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b385a801ccd124ce7b492098fef55e895623a577
 [MIL-004]: ./milestones/mil-004-framework-baseline.md
 [MIL-004 milestone]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/milestone/523
+[1b1a439]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/1b1a439da2fc5e409ff12782214f07a0aab8b168

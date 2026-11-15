@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version; accepted with the Go verdict of the review record (autonomous, not independent) | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version; accepted with the Go verdict of the review record (autonomous, not independent) | [1b1a439] |
 
 ---
 
@@ -72,3 +72,4 @@ A merged pull request that holds: the updated Business Case, Stakeholder Analysi
 
 [BC-001]: ../business-case.md
 [PP-001]: ../project-plan.md
+[1b1a439]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/1b1a439da2fc5e409ff12782214f07a0aab8b168

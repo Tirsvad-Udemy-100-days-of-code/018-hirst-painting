@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version; created with the review records of the baseline (autonomous, not independent) | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version; created with the review records of the baseline (autonomous, not independent) | [1b1a439] |
 
 ---
 
@@ -78,3 +78,4 @@ Tracks backward and forward links between the artifact instances of Hirst Painti
 [RC-015]: ./reviews/rc-015-milestone-003-baseline.md
 [RC-016]: ./reviews/rc-016-milestone-004.md
 [RC-017]: ./reviews/rc-017-wiki.md
+[1b1a439]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/1b1a439da2fc5e409ff12782214f07a0aab8b168

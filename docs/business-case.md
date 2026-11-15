@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | [701feb1] |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion SC9, a scope item, an assumption, a constraint exception and a risk for the baseline phase MIL-004; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion SC9, a scope item, an assumption, a constraint exception and a risk for the baseline phase MIL-004; set the domain to education; reviewed in autonomous mode, not independent | [1b1a439] |
 
 ---
 
@@ -188,3 +188,4 @@ Proceed — the work is small, the cost is only S01's time, and every objective 
 [701feb1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/701feb1e523b1d61fb93227a7f0e2feaac18bb4d
 [PP-001]: ./project-plan.md
 [MIL-004]: ./milestones/mil-004-framework-baseline.md
+[1b1a439]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/1b1a439da2fc5e409ff12782214f07a0aab8b168
