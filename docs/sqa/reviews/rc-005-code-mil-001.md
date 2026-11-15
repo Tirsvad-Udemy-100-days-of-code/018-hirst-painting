@@ -70,5 +70,5 @@ open one.
 
 [MIL-001]: ../../milestones/mil-001-palette.md
 [BC-001]: ../../business-case.md
-[QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [b7119ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b7119ef907b1ae56d7aa231a460aeab8fa2f2e11

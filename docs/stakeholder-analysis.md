@@ -6,12 +6,13 @@
 | ID | SA-001 |
 | CrossReference | [BC-001] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added concern IDs CN-001 to CN-006 (QC-SA-001 criterion 9), the baseline concern, the baseline phase in the communication table, a conflict about the stand-in reviewer and the traceability; set the domain to education; reviewed in autonomous mode, not independent | pending |
 
 ---
 
@@ -44,13 +45,14 @@ stakeholder is added only when someone or something actually shapes the work.
 
 ## Primary Concerns and FURPS+ Mapping
 
-| ID | Concern | FURPS+ attribute |
-| --- | --- | --- |
-| S01 | The program draws the painting correctly and as the lecture teaches: 100 dots, right size and spacing, palette without white, random colours | Functionality |
-| S01 | The result looks clean and the window stays open until a click | Usability |
-| S01 | The drawing finishes quickly enough to not be tedious | Performance |
-| S01 | The code is readable and passes the Python checklist | Supportability |
-| S01 | The process stays proportionate to a one-script project | Supportability |
+| Concern ID | Stakeholder | Concern | FURPS+ attribute |
+| --- | --- | --- | --- |
+| CN-001 | S01 | The program draws the painting correctly and as the lecture teaches: 100 dots, right size and spacing, palette without white, random colours | Functionality |
+| CN-002 | S01 | The result looks clean and the window stays open until a click | Usability |
+| CN-003 | S01 | The drawing finishes quickly enough to not be tedious | Performance |
+| CN-004 | S01 | The code is readable and passes the Python checklist | Supportability |
+| CN-005 | S01 | The process stays proportionate to a one-script project | Supportability |
+| CN-006 | S01 | The project follows the common baseline of the framework, with a wiki in English, Danish and Malay | Supportability |
 
 ## Communication Requirements
 
@@ -58,6 +60,7 @@ stakeholder is added only when someone or something actually shapes the work.
 | --- | --- | --- | --- | --- |
 | S01 | Chat with the assistant, working-tree review | At each review gate: Business Case and Stakeholder Analysis, Project Plan, each milestone, the code | Documents in `docs/`, review records `RC-*`, dry-run output of `sync-project.sh` | Every review gate before the next step starts |
 | S01 | Pull request on the git host | Once, when S01 asks for it | Pull request closing the completed issues | Code review before the pull request |
+| S01 | Pull request on the git host and end-of-run summary in chat | Once, for the baseline phase | Documents, wiki and review records to read, and the stand-in decisions | MIL-004 |
 
 ## Conflicting Interests and Mitigations
 
@@ -69,6 +72,7 @@ are tensions inside S01's own interests, and one process conflict.
 | S01 wants to practise the full framework workflow but also to finish a small exercise quickly | S01 | Two phases only, plain technical tasks, no use cases or design artifacts; the Business Case names this as a risk and as Out of Scope |
 | S01 may want to change values from the lecture (dot size, spacing, thresholds) while the Business Case fixes them as targets | S01 | S01 owns the decision; a change is made through a new Version History row of [BC-001] and a re-review |
 | The framework asks for a reviewer who is not the author, but S01 is the only person on the project | S01 | S01 accepted a documented self-review on 2026-10-07, recorded in the review records of [BC-001] and this document; the assistant never marks a document `Accepted` itself |
+| The documents of the baseline phase are accepted by an AI stand-in for S01, so that review is not independent | S01 | S01 authorised the stand-in for MIL-004 only; every review record says `Mode: autonomous, not independent`, and the end-of-run summary lists each stand-in decision so that S01 can challenge it |
 
 ## Traceability Analysis
 
@@ -76,9 +80,10 @@ are tensions inside S01's own interests, and one process conflict.
 
 | Stakeholder | Concern | Business Case objective |
 | --- | --- | --- |
-| S01 | Correct painting, as the lecture teaches | O1, O2, O3 of [BC-001] |
-| S01 | Clean, quick result | O4 of [BC-001] |
-| S01 | Reviewed, proportionate delivery | O5 of [BC-001] |
+| S01 | Correct painting, as the lecture teaches (CN-001) | O1, O2, O3 of [BC-001] |
+| S01 | Clean, quick result (CN-002, CN-003) | O4 of [BC-001] |
+| S01 | Reviewed, proportionate delivery (CN-004, CN-005) | O5 of [BC-001] |
+| S01 | A project that follows the common baseline of the framework, with a wiki in three languages (CN-006) | O7 of [BC-001] |
 
 Actor mapping: S01 is the only actor, as the person who runs the program and
 clicks the window to close it. The program has no other user, so no use cases

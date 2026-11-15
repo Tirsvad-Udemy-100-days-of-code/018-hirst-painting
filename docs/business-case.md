@@ -4,15 +4,16 @@
 | Key | Value |
 | --- | --- |
 | ID | BC-001 |
-| CrossReference | [SA-001] |
+| CrossReference | [SA-001], [PP-001], [MIL-004] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [b823d1f] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | [701feb1] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Added objective O6 and criterion SC8 (every dot clearly visible), the contrast standard, and a risk | [701feb1] |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion SC9, a scope item, an assumption, a constraint exception and a risk for the baseline phase MIL-004; set the domain to education; reviewed in autonomous mode, not independent | pending |
 
 ---
 
@@ -70,6 +71,7 @@ so the effort the framework adds can be judged against the size of the work.
 | O4 | Keep the finished painting on screen until the user clicks, and present it cleanly: turtle hidden, no trail between dots. |
 | O5 | Deliver the work through the framework: plan and issues first, then code reviewed against `qc-programming-python` (`RC-*` verdict `Go`) before the pull request. |
 | O6 | Keep every dot clearly visible on the white background: drop palette colours whose contrast with white is below 2.0. |
+| O7 | Bring the finished project to the common baseline of the framework: the adopted framework release, a wiki in English, Danish and Malay, complete licence metadata, a traceability matrix and review records ([MIL-004]). |
 
 ## Scope
 
@@ -81,6 +83,7 @@ so the effort the framework adds can be judged against the size of the work.
 - Drawing of the 10 by 10 dot grid: dot size, spacing, row change and heading handling.
 - Screen handling: `exitonclick`, hiding the turtle, pen up between dots, drawing speed.
 - The framework documents the plan-first workflow requires for this work (Business Case, Stakeholder Analysis, Project Plan, milestones), and the review records for them and for the code.
+- The baseline phase [MIL-004]: framework release, wiki in English, Danish and Malay, licence metadata, traceability matrix and review records. It changes no behaviour of the program.
 
 ### Out of Scope
 
@@ -89,6 +92,7 @@ so the effort the framework adds can be judged against the size of the work.
 - Packaging or publishing the program as a library or application.
 - Painting any image other than the dot grid.
 - Use cases, domain models, class and database designs: the program has no persistent data and no user interaction beyond the exit click.
+- Any change to `src/` or `tests/` in the baseline phase.
 
 ## Expected Benefits
 
@@ -121,6 +125,7 @@ framework that the repository is built on.
 | SC6 | Run time (O4) | The full painting is drawn in 30 seconds or less | Timed run on the developer machine (value confirmed by S01) |
 | SC7 | Review gate (O5) | `RC-*` for the code has verdict `Go`; the pull request closes every issue it completes | Review record and pull request description |
 | SC8 | Visible colours (O6) | 0 palette colours with a contrast ratio against white below 2.0; SC3 still holds for the final palette (at least 2 colours) | Print of the extracted palette with the contrast of every colour, checked against the limit (value chosen by S01) |
+| SC9 | The baseline phase is done (O7) | Wiki pages in 3 languages, `framework/scripts/check-readme.sh` exits with code 0, 100 % of the continuous integration (CI) checks of the pull request pass | Files in `docs/wiki/`, the script exit code and the pull request status on the git host |
 
 ## Risks
 
@@ -133,6 +138,7 @@ framework that the repository is built on.
 | The contrast cut-off removes too many colours | The painting looks dull | The limit of 2.0 sits in a gap in the palette of the reference image: 8 of its 30 colours fall below it, and the palest colour kept has a contrast of 2.56, so 22 remain. SC3 still requires at least 2, and S01 judges the picture in the timed run |
 | Framework process outweighs the size of the work | Schedule slips and the exercise stops being a small one | Keep to two phases and plain tasks; no use cases or design artifacts (see Out of Scope) |
 | The only named reviewer is also the author | Reviews are not independent, as the review process requires | S01 accepted a documented self-review on 2026-10-07; each review record states it |
+| The baseline documents of MIL-004 are reviewed by an AI stand-in for S01 | Medium: a defect is missed because the review is not independent | Every review record of the baseline says `Mode: autonomous, not independent`, and the end-of-run summary lists it for challenge |
 
 ## Assumptions
 
@@ -141,14 +147,15 @@ framework that the repository is built on.
 - The reference image is supplied by S01 from the course material.
 - The lecture summary is a faithful statement of the required behaviour.
 - The phases are completed within one week of the start date, 2026-10-07 (confirmed by S01).
+- The baseline phase [MIL-004] is finished within one week of its own start, 2026-11-15, by 2026-11-22.
 
 ## Constraints
 
 - Only the standard `turtle` and `random` modules plus `colorgram` are used.
 - The program is one source file under `src/`; its tests, if any, are under `tests/`.
 - No code is written until a milestone is `Accepted`, has a review record with verdict `Go`, and the task is a row in it (plan-first gate).
-- Nothing is committed, pushed or opened as a pull request unless S01 asks.
-- Project documents are written in English (PO language `en`, domain `it`).
+- Nothing is committed, pushed or opened as a pull request unless S01 asks. The exception is the baseline phase: there S01 has authorised the assistant to commit, push, open the pull request and merge it in autonomous mode.
+- Project documents are written in English (PO language `en`, domain `education`).
 
 ## Cost–Benefit Assessment
 
@@ -168,7 +175,7 @@ Roles, power and interest are in [SA-001]; they are not repeated here.
 
 | Stakeholder ID (SA) | Interest in this project |
 | --- | --- |
-| S01 | Owner of all objectives (O1 to O6); accepts the work and answers the open questions above |
+| S01 | Owner of all objectives (O1 to O7); accepts the work and answers the open questions above |
 
 ## Recommendation
 
@@ -179,3 +186,5 @@ Proceed — the work is small, the cost is only S01's time, and every objective 
 [SA-001]: ./stakeholder-analysis.md
 [b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
 [701feb1]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/701feb1e523b1d61fb93227a7f0e2feaac18bb4d
+[PP-001]: ./project-plan.md
+[MIL-004]: ./milestones/mil-004-framework-baseline.md

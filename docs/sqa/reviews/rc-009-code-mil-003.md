@@ -74,6 +74,6 @@ S01 and does not block the verdict; only item 1 did, and it is closed.
 [MIL-001]: ../../milestones/mil-001-palette.md
 [MIL-002]: ../../milestones/mil-002-painting.md
 [BC-001]: ../../business-case.md
-[QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [RC-006]: ./rc-006-code-mil-002.md
 [970b600]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/970b600be9e5d56e7426891e72246836c4812c86

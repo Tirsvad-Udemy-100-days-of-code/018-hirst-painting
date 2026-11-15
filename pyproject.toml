@@ -4,11 +4,19 @@ version = "0.1.0"
 description = "Hirst-style spot painting drawn with turtle (Day 18 of 100 Days of Code)."
 readme = "README.md"
 requires-python = ">=3.13"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Jens Tirsvad Nielsen" }]
 # Toolchain verified on 2026-10-07 (MIL-001 task 1): Python 3.13.14, Tk 8.6 and
 # colorgram.py 1.2.0 with Pillow 12.3.0. Pillow is pulled in by colorgram.py.
 dependencies = [
     "colorgram.py==1.2.0",
 ]
+
+[project.urls]
+Repository = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting"
+Documentation = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/wiki"
+"Issue tracker" = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/issues"
 
 [dependency-groups]
 dev = [
