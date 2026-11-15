@@ -89,6 +89,7 @@ The documents a newcomer needs, in reading order.
 | [Milestones][milestones] | One document per gateway: Go/No-Go criteria and tasks |
 | [Review records][reviews] | One record per review of a document or of the code, against its quality checklist |
 | [Artifact registry][registry] | Where each artifact type lives, the next version, the PO language and domain |
+| [Traceability matrix][TM-001] | How the artifacts link and when each was last reviewed |
 | [Framework][framework] | The SQA and QC framework this project uses, mounted as a submodule |
 
 ---
@@ -104,4 +105,5 @@ The documents a newcomer needs, in reading order.
 [reviews]: ./docs/sqa/reviews/
 [RC-006]: ./docs/sqa/reviews/rc-006-code-mil-002.md
 [registry]: ./docs/artifact-registry.md
+[TM-001]: ./docs/sqa/traceability-matrix.md
 [framework]: ./framework

@@ -6,13 +6,14 @@
 | ID | MIL-003 |
 | CrossReference | [BC-001] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [188b2e9] |
-| 2026-10-08 | Accepted | Jens Tirsvad Nielsen | S01 | Renamed task 6 so that its issue title is unique across the milestones (issue #27) | [22b7329] |
+| 2026-10-08 | Deprecated | Jens Tirsvad Nielsen | S01 | Renamed task 6 so that its issue title is unique across the milestones (issue #27) | [22b7329] |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Set the domain to education (metadata only; content unchanged); reviewed in autonomous mode, not independent | [1b1a439] |
 
 ---
 
@@ -86,3 +87,4 @@ Tasks column "Needs its own Use Case/User Story?" says `No` throughout.
 [BC-001]: ../business-case.md
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
 [22b7329]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/22b7329b47ccbfeff5cdf5626da9b5d60010d261
+[1b1a439]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/1b1a439da2fc5e409ff12782214f07a0aab8b168

@@ -69,6 +69,6 @@ Go — every criterion of [QC-BC-001] and of [QC-LANG-001] passes (criterion 8 o
 
 [BC-001]: ../../business-case.md
 [SA-001]: ../../stakeholder-analysis.md
-[QC-BC-001]: ../../../framework/qc/qc-business-case.md
-[QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[QC-BC-001]: ../../../framework/qc/artifacts/qc-business-case.md
+[QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [b823d1f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/b823d1f405ebac6b0198605edd9d802518529725
