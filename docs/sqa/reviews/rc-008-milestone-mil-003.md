@@ -68,7 +68,7 @@ Go — every criterion of [QC-MIL-001] and of [QC-LANG-001] passes (criterion 8 
 
 [MIL-003]: ../../milestones/mil-003-visible-colours.md
 [BC-001]: ../../business-case.md
-[QC-MIL-001]: ../../../framework/qc/qc-milestones-gateways.md
-[QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[QC-MIL-001]: ../../../framework/qc/artifacts/qc-milestones-gateways.md
+[QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [188b2e9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/188b2e97000d761802d4384c160598f785860a28
 [22b7329]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/22b7329b47ccbfeff5cdf5626da9b5d60010d261

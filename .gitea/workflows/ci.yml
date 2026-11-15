@@ -8,12 +8,21 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   checks:
+    name: Checks
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out the repository
+        uses: actions/checkout@v4.2.2
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5.6.0
         with:
           python-version: "3.13"
       - name: Install system packages

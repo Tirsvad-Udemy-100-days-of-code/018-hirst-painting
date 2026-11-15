@@ -76,6 +76,6 @@ code satisfies criteria 1 to 5 of [MIL-002] on the evidence above. Action item
 [MIL-002]: ../../milestones/mil-002-painting.md
 [MIL-001]: ../../milestones/mil-001-palette.md
 [BC-001]: ../../business-case.md
-[QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [c3cfb64]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/c3cfb6462e4b8b0a6fe37cf953a601703e352538
 [3868ea6]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/018-hirst-painting/commit/3868ea6f8bb540612189782e95d19b2e4c93cbae

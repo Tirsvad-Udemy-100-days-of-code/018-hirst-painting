@@ -7,15 +7,16 @@ each document lives in *this* project and the next version to use.
 
 Delete rows for types you don't use. Add a row the first time you create a
 document of a type. `Primary File` may contain a glob (e.g.
-`docs/uc-*/uc.md`); `framework/scripts/find-crossreferences.sh` reads it.
+`docs/use-cases/uc-*/uc.md`); `framework/scripts/find-crossreferences.sh` reads it.
 
 | Short Name | Artifact Type | Primary File | Next Available Version |
 | --- | --- | --- | --- |
 | BC | Business Case | docs/business-case.md | 002 |
 | SA | Stakeholder Analysis | docs/stakeholder-analysis.md | 002 |
 | PP | Project Plan | docs/project-plan.md | 002 |
-| MIL | Milestone / Gateway | docs/milestones/*.md | 004 |
-| RC | SQA Review Record | docs/sqa/reviews/rc-*.md | 010 |
+| MIL | Milestone / Gateway | docs/milestones/mil-*.md | 005 |
+| TM | Traceability Matrix | docs/sqa/traceability-matrix.md | 002 |
+| RC | SQA Review Record | docs/sqa/reviews/rc-*.md | 018 |
 
 ## Languages
 
@@ -27,9 +28,10 @@ exists once, in that language, under its normal name (`business-case.md`); the
 | Setting | Value |
 | --- | --- |
 | PO language | en |
-| PO domain | it |
+| PO domain | education |
 | High-level register | IT Executive English |
 | Technical register | IT Professional English |
+| Wiki languages | en, da and ms (`framework/process/wiki.md`) |
 
 Every artifact of a type marked "Yes" below states its language and domain in
 its `Language` and `Domain` Metadata rows; `new-artifact.sh` fills them from
@@ -42,12 +44,25 @@ reviewer can see at once which professional vocabulary a document uses.
 | it | Software and IT |
 | medical | Healthcare and medical devices |
 | construction | Construction and civil engineering |
+| education | Education, teaching and learning (a course exercise project) |
 
 | Artifact types | Register | Written in the PO language |
 | --- | --- | --- |
 | BC, KPI, PP, MIL | IT Executive English | Yes |
 | SA, BMC, BPMN, UCD, US, UC, SSD, DM, RA, GOV, DICT | IT Professional English | Yes |
-| OC, SD, DCD, ERD, ADR, TM, RC, QC, source code | IT Professional English | No |
+| OC, SD, DCD, ERD, TP, AD, ADR, TM, RC, QC, source code | IT Professional English | No |
+
+## Tools
+
+Settings of the tools the framework's scripts use. Each organisation sets its own.
+
+| Setting | Value |
+| --- | --- |
+| PlantUML server | https://plantuml.tirsystem.com/ |
+
+`framework/scripts/render-diagrams.sh` reads `PlantUML server` when neither `--server`
+nor the environment variable `PLANTUML_URL` is given. The diagram text is sent to that
+server, so name one your organisation trusts.
 
 ## Notes
 

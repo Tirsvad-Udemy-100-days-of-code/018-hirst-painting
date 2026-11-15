@@ -1,0 +1,33 @@
+# Python .gitignore for the Hirst Painting project.
+
+# --- Local virtual environment ---
+.venv/
+venv/
+env/
+
+# --- Personal secrets: tokens for the git host. Never commit. ---
+.env
+.env.*
+!.env.example
+
+# --- Byte-compiled files and caches ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Packaging and build output ---
+build/
+dist/
+*.egg-info/
+
+# --- Editors and operating systems ---
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- AI prompt logs (kept local; this repository is public) ---
+/docs/ai-prompts/
